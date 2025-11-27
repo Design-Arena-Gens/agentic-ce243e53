@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --background: #050505;
+  --surface: #121212;
+  --text-primary: #ededed;
+  --text-secondary: #888888;
+  --accent: #00d1ff;
+  --accent-secondary: #ffffff;
+  --glow-primary: rgba(0, 209, 255, 0.42);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
+  --font-display: var(--font-playfair-display);
+  --font-sans: var(--font-inter);
+  --font-tech: var(--font-jetbrains);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(circle at 20% 20%, rgba(0, 209, 255, 0.12), transparent 55%),
+    radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.08), transparent 45%),
+    var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-inter);
+  min-height: 100vh;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(0, 209, 255, 0.24);
+  color: var(--accent-secondary);
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-playfair-display);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .font-body {
+    font-family: var(--font-inter);
+  }
+
+  .font-tech {
+    font-family: var(--font-jetbrains);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 24px var(--glow-primary);
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(
+        135deg,
+        rgba(0, 209, 255, 0.6),
+        rgba(255, 255, 255, 0.06)
+      )
+      1;
+  }
+
+  .ambient-blur {
+    backdrop-filter: blur(32px);
+    background: rgba(5, 5, 5, 0.48);
+  }
+
+  .gridlines {
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.04) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.04) 1px,
+        transparent 1px
+      );
+    background-size: 80px 80px;
+  }
+}
